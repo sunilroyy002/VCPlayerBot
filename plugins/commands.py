@@ -56,7 +56,7 @@ if Config.DATABASE_URI:
 HOME_TEXT = "<b>Hey  [{}](tg://user?id={}) 🙋‍♂️\n\nIam only works for @manaoriginals</b>"
 admin_filter=filters.create(is_admin) 
 
-@Client.on_message(filters.command(['start', f"start@{Config.BOT_USERNAME}"]))
+@Client.on_message(filters.command(['start', f"start@{Config.BOT_USERNAME}"]) & admin_filter)
 async def start(client, message):
     if len(message.command) > 1:
         if message.command[1] == 'help':
